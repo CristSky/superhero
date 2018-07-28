@@ -34,5 +34,25 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "ProtectionArea": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SuperHero": {
+    "dataSource": "db",
+    "public": true
+  },
+  "SuperPower": {
+    "dataSource": "db",
+    "public": true
+  },
+  "AuditEvent": {
+    "dataSource": "db",
+    "public": true
+  },
+  "BaseModel": {
+    "dataSource": null,
+    "public": false
   }
 }

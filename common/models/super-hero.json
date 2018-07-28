@@ -1,0 +1,38 @@
+{
+  "name": "SuperHero",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "alias": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "superPowers": {
+      "type": "hasMany",
+      "model": "SuperPower",
+      "foreignKey": "superPowerId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "protectionAreas": {
+      "type": "hasOne",
+      "model": "ProtectionArea",
+      "foreignKey": "protectionAreaId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

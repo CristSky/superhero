@@ -1,0 +1,35 @@
+{
+  "name": "AuditEvent",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "entity": {
+      "type": "string",
+      "required": true
+    },
+    "entityId": {
+      "type": "string",
+      "required": true
+    },
+    "datetime": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "action": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
