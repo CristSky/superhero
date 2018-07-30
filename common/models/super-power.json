@@ -15,7 +15,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "superHeros": {
+      "type": "hasAndBelongsToMany",
+      "model": "SuperHero",
+      "foreignKey": "superPowerId",
+      "through": "SuperHeroPower"
+    }
+  },
   "acls": [],
   "methods": {}
 }

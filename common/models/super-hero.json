@@ -16,21 +16,19 @@
   },
   "validations": [],
   "relations": {
-    "superPowers": {
-      "type": "hasMany",
-      "model": "SuperPower",
-      "foreignKey": "superPowerId",
+    "protectionAreas": {
+      "type": "hasOne",
+      "model": "ProtectionArea",
+      "foreignKey": "superHeroId",
       "options": {
         "nestRemoting": true
       }
     },
-    "protectionAreas": {
-      "type": "hasOne",
-      "model": "ProtectionArea",
-      "foreignKey": "protectionAreaId",
-      "options": {
-        "nestRemoting": true
-      }
+    "superPowers": {
+      "type": "hasMany",
+      "model": "SuperPower",
+      "foreignKey": "superHeroId",
+      "through": "SuperHeroPower"
     }
   },
   "acls": [],

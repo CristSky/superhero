@@ -13,46 +13,87 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
+  "BaseUser": {
+    "dataSource": "mongo",
+    "public": true
   },
-  "AccessToken": {
-    "dataSource": "db",
+  "BaseAccessToken": {
+    "dataSource": "mongo",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongo",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
-    "public": false,
-    "options": {
-      "strictObjectIDCoercion": true
-    }
+    "dataSource": "mongo",
+    "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongo",
     "public": false
   },
   "ProtectionArea": {
-    "dataSource": "db",
-    "public": true
+    "dataSource": "mongo",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "helpMe": true,
+          "findById": true,
+          "findOne": true,
+          "create": true,
+          "prototype.patchAttributes": true,
+          "deleteById": true
+        }
+      }
+    }
   },
   "SuperHero": {
-    "dataSource": "db",
-    "public": true
+    "dataSource": "mongo",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "pagedFind": true,
+          "findById": true,
+          "findOne": true,
+          "create": true,
+          "prototype.patchAttributes": true,
+          "deleteById": true
+        }
+      }
+    }
   },
   "SuperPower": {
-    "dataSource": "db",
-    "public": true
+    "dataSource": "mongo",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": true,
+          "pagedFind": true,
+          "findById": true,
+          "findOne": true,
+          "create": true,
+          "prototype.patchAttributes": true,
+          "deleteById": true
+        }
+      }
+    }
   },
   "AuditEvent": {
-    "dataSource": "db",
+    "dataSource": "mongo",
     "public": true
   },
   "BaseModel": {
     "dataSource": null,
     "public": false
+  },
+  "SuperHeroPower": {
+    "dataSource": "mongo",
+    "public": true
   }
 }
