@@ -8,6 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
+    "test": "NODE_ENV=test mocha test/**/*.js --exit --timeout 10000",
+    "testw": "set NODE_ENV=test&& set DB_HOST=192.168.0.246&& set DB_PORT=37017&& mocha test/**/*.js --exit --timeout 10000",
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
