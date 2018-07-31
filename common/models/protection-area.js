@@ -27,7 +27,7 @@ module.exports = (ProtectionArea) => {
         location: { near: geopoint, maxDistance: 10, unit: 'kilometers' },
       },
       limit: 8,
-    }, (err, instances) => {
+    }, options, (err, instances) => {
       if (err) next(err);
       else next(null, instances);
     });

@@ -1,28 +1,13 @@
 {
-  "name": "SuperPower",
-  "base": "PersistedModel",
+  "name": "SuperHeroSuperPower",
+  "base": "BaseModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "string"
-    }
-  },
+  "properties": {},
   "validations": [],
-  "relations": {
-    "superHeros": {
-      "type": "hasAndBelongsToMany",
-      "model": "SuperHero",
-      "foreignKey": "superPowerId",
-      "through": "SuperHeroSuperPower"
-    }
-  },
+  "relations": {},
   "acls": [
     {
       "accessType": "*",

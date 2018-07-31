@@ -33,6 +33,13 @@
   "session": {},
   "auth": {},
   "parse": {},
+  "routes:before": {
+    "loopback#token": {
+      "params": {
+        "model": "BaseAccessToken"
+      }
+    }
+  },
   "routes": {
     "loopback#rest": {
       "paths": [

@@ -7,11 +7,12 @@ chai.should();
 chai.use(chaiHttp);
 
 const testServer = chai.request(server).keepOpen();
+const MODEL = 'BaseUser';
 
 const create = require('./create');
 
 
-describe('BaseUser', () => {
+describe(MODEL, () => {
   let token = '';
   before((done) => {
     const { BaseUser } = server.models;
@@ -21,7 +22,10 @@ describe('BaseUser', () => {
     });
   });
 
-  create(testServer, token);
+  context('API', () => {
+    create(testServer, MODEL, token);
+  });
+
 
   after(done => {
     testServer.close();

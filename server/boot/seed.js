@@ -21,6 +21,8 @@ module.exports = (app) => {
   ROLES.forEach(role => Role.findOrCreate({ where: { name: role.name } }, role));
   /**
    * Seed User Admin and map role
+   *
+   * Note: all User RoleMapping need to be identified by principalType: USER
    */
   BaseUser.findOrCreate({
     where: { username: USER_ADMIN.username },
@@ -29,6 +31,7 @@ module.exports = (app) => {
     Role.findOne({ where: { name: 'admin' } }, (err2, role) => {
       if (err2) throw err2;
       const roleMap = {
+        principalType: 'USER',
         principalId: userAdmin.id,
         roleId: role.id,
       };

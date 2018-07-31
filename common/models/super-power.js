@@ -26,10 +26,10 @@ module.exports = (SuperPower) => {
    * Before delete observer for denying deletion of associated Super Hero Super Power instances
    */
   SuperPower.observe('before delete', (ctx, next) => {
-    const { SuperHeroPower } = SuperPower.app.models;
+    const { SuperHeroSuperPower } = SuperPower.app.models;
     const superPowerId = ctx.where.id;
 
-    SuperHeroPower.find({ where: { superPowerId } }, (err, instance) => {
+    SuperHeroSuperPower.find({ where: { superPowerId } }, (err, instance) => {
       if (err) return next(err);
       if (instance.length) return next(DeletionForbidden());
       return next();

@@ -15,7 +15,23 @@
   },
   "BaseUser": {
     "dataSource": "mongo",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "pagedFind": true,
+          "findById": true,
+          "findOne": true,
+          "create": true,
+          "login": true,
+          "logout": true,
+          "changePassword": true,
+          "prototype.patchAttributes": true,
+          "deleteById": true
+        }
+      }
+    }
   },
   "BaseAccessToken": {
     "dataSource": "mongo",
@@ -27,7 +43,10 @@
   },
   "RoleMapping": {
     "dataSource": "mongo",
-    "public": false
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
   },
   "Role": {
     "dataSource": "mongo",
@@ -73,7 +92,7 @@
     "options": {
       "remoting": {
         "sharedMethods": {
-          "*": true,
+          "*": false,
           "pagedFind": true,
           "findById": true,
           "findOne": true,
@@ -92,8 +111,21 @@
     "dataSource": null,
     "public": false
   },
-  "SuperHeroPower": {
+  "SuperHeroSuperPower": {
     "dataSource": "mongo",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "pagedFind": true,
+          "findById": true,
+          "findOne": true,
+          "create": true,
+          "prototype.patchAttributes": true,
+          "deleteById": true
+        }
+      }
+    }
   }
 }

@@ -4,6 +4,6 @@ module.exports = (AuditEvent) => {
   /**
    * override get all to be paged
    */
-  AuditEvent.prototype.pagedFind = pagedFind;
+  AuditEvent.pagedFind = pagedFind;
   AuditEvent.remoteMethod('pagedFind', remoteMethodDescription);
 };

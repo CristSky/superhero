@@ -1,9 +1,7 @@
-const MODEL = 'BaseUser'
-const MODEL_PATH = `/api/${MODEL}`;
-const METHOD = 'post';
+module.exports = (Server, MODEL, Token) => describe(`POST /${MODEL} create`, () => {
+  const MODEL_PATH = `/api/${MODEL}`;
+  const METHOD = 'post';
 
-
-module.exports = (Server, Token) => describe(`POST /${MODEL} create`, () => {
   describe('Response', () => {
     it('200 created', (done) => {
       Server[METHOD](MODEL_PATH)
@@ -18,5 +16,5 @@ module.exports = (Server, Token) => describe(`POST /${MODEL} create`, () => {
     });
   });
 
-  describe('ACL', () => {});
+  // describe('ACL', () => {});
 });
