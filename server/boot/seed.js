@@ -13,7 +13,7 @@ const USER_ADMIN = {
   password: 'boss',
 };
 
-module.exports = (app) => {
+module.exports = (app, done) => {
   const { Role, BaseUser, RoleMapping } = app.models;
   /**
    * Seed Roles
@@ -37,6 +37,7 @@ module.exports = (app) => {
       };
       RoleMapping.findOrCreate({ where: roleMap }, roleMap, (err3) => {
         if (err3) throw err3;
+        done();
       });
     });
   });
