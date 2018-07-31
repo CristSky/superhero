@@ -8,8 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "test": "NODE_ENV=test mocha tests/**/*.js --exit --timeout 10000",
-    "testw": "set NODE_ENV=test&& set DB_HOST=192.168.0.246&& set DB_PORT=37017&& mocha tests/**/*.js --exit --timeout 10000",
+    "test": "nyc mocha tests/**/*.js --exit --timeout 10000",
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {

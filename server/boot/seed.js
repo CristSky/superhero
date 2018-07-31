@@ -4,7 +4,7 @@ const ROLES = [
     description: 'ANY operations',
   },
   {
-    name: 'default',
+    name: 'standard',
     description: 'READ only',
   },
 ];

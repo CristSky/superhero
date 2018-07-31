@@ -7,24 +7,22 @@ chai.should();
 chai.use(chaiHttp);
 
 const testServer = chai.request(server).keepOpen();
-const MODEL = 'BaseUser';
+const MODEL = 'Users';
 
 const create = require('./create');
 
 
 describe(MODEL, () => {
-  let token = '';
+  const auth = { token: {} };
   before((done) => {
     const { BaseUser } = server.models;
-    BaseUser.login({ username: 'admin', password: 'boss' }, (err, userToken) => {
-      token = userToken;
+    BaseUser.login({ username: 'admin', password: 'boss' }, (err, token) => {
+      auth.token = token;
       done();
     });
   });
 
-  context('API', () => {
-    create(testServer, MODEL, token);
-  });
+  create(testServer, MODEL, auth);
 
 
   after(done => {

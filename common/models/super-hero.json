@@ -46,6 +46,27 @@
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "standard",
+      "permission": "ALLOW",
+      "property": "pagedFind"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "standard",
+      "permission": "ALLOW",
+      "property": "findOne"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "standard",
+      "permission": "ALLOW",
+      "property": "findById"
     }
   ],
   "methods": {}

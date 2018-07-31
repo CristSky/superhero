@@ -1,0 +1,35 @@
+.only_template: &only_definition
+- master
+
+stages:
+- test
+- deploy
+
+test:
+  image: node:8
+  stage: test
+  services:
+  - mongo
+  variables:
+    DB_HOST: 'mongo'
+    DB_PORT: ''
+    DB_DATABASE: 'superhero'
+    NODE_ENV: 'test'
+  script:
+  - yarn
+  - yarn run test
+  only: *only_definition
+
+deploy:
+  image: docker:latest
+  stage: deploy
+  services:
+  - docker:dind
+  before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  script:
+  - docker build -t $IMAGE_TAG .
+  - docker push $IMAGE_TAG
+  only: *only_definition
